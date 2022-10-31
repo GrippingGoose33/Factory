@@ -16,6 +16,10 @@ public class Items : MonoBehaviour
     public static float amount;
     public Text amountText;
 
+    public static float speed;
+
+    public float speedProd = 2;
+
     public float production;
     public float productionUpgrade;
     public static float productionTotal;
@@ -26,6 +30,8 @@ public class Items : MonoBehaviour
 
     private float timer = 0;
 
+   
+
     void Start()
     {
         currentCost = firstUpgrade;
@@ -33,12 +39,13 @@ public class Items : MonoBehaviour
         costText.text = "$" + currentCost;
         amountText.text = "" + amount;
         productionText.text = "" + productionTotal;
+        speed = speedProd;
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 2)
+        if (timer >= speed)
         {
             amount += productionTotal;
 
