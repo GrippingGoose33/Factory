@@ -8,7 +8,7 @@ public class Machineri : MonoBehaviour
     [Header("Costs")]
 
     public float firstUpgrade;
-    private float currentCost;
+    public static float currentCost;
     public float upCost;
     public Text costText;
 
@@ -24,7 +24,7 @@ public class Machineri : MonoBehaviour
 
     private float timer = 0;
 
-    void Start()
+    void Awake()
     {
         currentCost = firstUpgrade;
         createTotal += create;
@@ -40,6 +40,8 @@ public class Machineri : MonoBehaviour
             Items.productionTotal += createTotal; 
             timer = 0;
         }
+        costText.text = "$" + currentCost;
+        createText.text = "" + createTotal;
     }
 
     public void Upgrade()
@@ -49,8 +51,6 @@ public class Machineri : MonoBehaviour
             Money.dinero -= currentCost;
             currentCost += upCost;
             createTotal += createUpgrade;
-            costText.text = "$" + currentCost;
-            createText.text = "" + createTotal;
         }
     }
 }

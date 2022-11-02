@@ -9,6 +9,10 @@ public class Habilidades : MonoBehaviour
 
     public float coolDown = 0;
 
+    private float speedTime;
+
+    private bool speedUp = false;
+
     public GameObject Bloqueo;
 
     void Update()
@@ -16,8 +20,19 @@ public class Habilidades : MonoBehaviour
         if(coolDown > 0)
         {
             coolDown -= Time.deltaTime;
-            Debug.Log(coolDown);
 
+            if (speedUp == true)
+            {
+                speedTime -= Time.deltaTime;
+
+                if (speedTime <= 0)
+                {
+                    Items.speed = Items.speedProd;
+
+                    Debug.Log("Fin de Speed");
+                }
+
+            }
             Bloqueo.SetActive(true);
         }
         else
@@ -45,9 +60,29 @@ public class Habilidades : MonoBehaviour
     {
         if (coolDown <= 0)
         {
-            coolDown = 10;
+            coolDown = 20;
 
             Items.speed = Items.speed / 2;
+
+            speedUp = true;
+
+            Bloqueo.SetActive(false);
+
+            speedTime = 10;
+
+            Debug.Log("Bloqueo activado");
+        }
+    }
+
+    public void MoreValue()
+    {
+        if (coolDown <= 0)
+        {
+            coolDown = 30;
+
+            Money.dinero += Items.amount * Random.Range(1, 5);
+
+            Items.amount = 0;
 
             Bloqueo.SetActive(false);
 

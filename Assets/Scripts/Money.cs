@@ -11,13 +11,13 @@ public class Money : MonoBehaviour
 
     void Start()
     {
-        moneyText.text = "$" + dinero;
+        moneyText.text = "" + dinero;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "$" + dinero;
+        moneyText.text = "" + dinero;
     }
 
     public void Cambiar()

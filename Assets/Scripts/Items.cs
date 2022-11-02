@@ -8,7 +8,7 @@ public class Items : MonoBehaviour
     [Header("Costs")]
 
     public float firstUpgrade;
-    private float currentCost;
+    public static float currentCost;
     public float upCost;
     public Text costText;
 
@@ -18,25 +18,20 @@ public class Items : MonoBehaviour
 
     public static float speed;
 
-    public float speedProd = 2;
+    public static float speedProd = 2;
 
     public float production;
     public float productionUpgrade;
     public static float productionTotal;
     public Text productionText;
 
-    [Header("Particles")]
-    public GameObject upParticle;
-
     private float timer = 0;
 
-   
-
-    void Start()
+    void Awake()
     {
         currentCost = firstUpgrade;
         productionTotal += production;
-        costText.text = "$" + currentCost;
+        costText.text = "" + currentCost;
         amountText.text = "" + amount;
         productionText.text = "" + productionTotal;
         speed = speedProd;
@@ -53,6 +48,7 @@ public class Items : MonoBehaviour
         }
         amountText.text = "" + amount;
         productionText.text = "" + productionTotal;
+        costText.text = "$" + currentCost;
     }
 
     public void Upgrade()
@@ -63,7 +59,6 @@ public class Items : MonoBehaviour
             currentCost += upCost;
             productionTotal += productionUpgrade;
             costText.text = "$" + currentCost;
-            productionText.text = "" + productionTotal;
         }
     }
 }
