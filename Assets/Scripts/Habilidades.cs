@@ -48,11 +48,9 @@ public class Habilidades : MonoBehaviour
         {
             coolDown = 10;
 
-            Items.amount = Items.amount * 2;
+            Items.amount *= 2;
 
             Bloqueo.SetActive(false);
-
-            Debug.Log("Bloqueo activado");
         }
     }
 
@@ -62,15 +60,13 @@ public class Habilidades : MonoBehaviour
         {
             coolDown = 20;
 
-            Items.speed = Items.speed / 2;
+            Items.speed /= 2;
 
             speedUp = true;
 
             Bloqueo.SetActive(false);
 
             speedTime = 10;
-
-            Debug.Log("Bloqueo activado");
         }
     }
 
@@ -85,8 +81,6 @@ public class Habilidades : MonoBehaviour
             Items.amount = 0;
 
             Bloqueo.SetActive(false);
-
-            Debug.Log("Bloqueo activado");
         }
     }
 

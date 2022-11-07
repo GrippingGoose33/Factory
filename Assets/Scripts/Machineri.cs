@@ -19,9 +19,6 @@ public class Machineri : MonoBehaviour
     public static float createTotal;
     public Text createText;
 
-    [Header("Particles")]
-    public GameObject upParticle;
-
     private float timer = 0;
 
     void Awake()
